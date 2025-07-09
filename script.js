@@ -1,68 +1,34 @@
-// Blog posts data (could be loaded from a JSON file, but kept here for simplicity)
-const posts = [
-  {
-    id: 1,
-    title: "Welcome to My Blog",
-    date: "2024-06-01",
-    summary: "This is the first post on my new blog!",
-    content: `<p>Welcome to my blog. This is my first post. Stay tuned for more updates!</p>`
-  },
-  {
-    id: 2,
-    title: "Another Day, Another Post",
-    date: "2024-06-02",
-    summary: "Here's another post to show how things work.",
-    content: `<p>This is another post. You can add as many posts as you like by editing the <code>posts</code> array in <code>script.js</code>.</p>`
-  }
-];
+document.addEventListener('DOMContentLoaded', function() {
+    // 初始化 Swiper 轮播图
+    const swiper = new Swiper('#hero', {
+        loop: true, // 循环播放
+        autoplay: {
+            delay: 5000, // 5秒自动播放
+            disableOnInteraction: false, // 用户交互后不停止自动播放
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
 
-// Utility to get query params
-function getQueryParam(name) {
-  const url = new URL(window.location.href);
-  return url.searchParams.get(name);
-}
+    // 平滑滚动到锚点
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
 
-// Render posts list on index.html
-function renderPostsList() {
-  const list = document.getElementById('posts-list');
-  if (!list) return;
-  list.innerHTML = '';
-  posts.forEach(post => {
-    const card = document.createElement('div');
-    card.className = 'post-card';
-    card.innerHTML = `
-      <a class="post-title" href="post.html?id=${post.id}">${post.title}</a>
-      <span class="post-date">${post.date}</span>
-      <p>${post.summary}</p>
-    `;
-    list.appendChild(card);
-  });
-}
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
 
-// Render single post on post.html
-function renderSinglePost() {
-  const container = document.getElementById('post-content');
-  if (!container) return;
-  const id = getQueryParam('id');
-  const post = posts.find(p => p.id == id);
-  if (!post) {
-    container.innerHTML = '<p>Post not found.</p>';
-    return;
-  }
-  container.innerHTML = `
-    <h2>${post.title}</h2>
-    <span class="post-date">${post.date}</span>
-    <div>${post.content}</div>
-  `;
-}
-
-// Initialize
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
-    renderPostsList();
-    renderSinglePost();
-  });
-} else {
-  renderPostsList();
-  renderSinglePost();
-}
+    // 可以在这里添加更多交互功能，例如：
+    // - 图片放大效果（LightBox）
+    // - 视频播放控制
+    // - 新闻加载等
+});
