@@ -1,27 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Blog</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>火影忍者世界 - 官方网站</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 <body>
-  <header>
-    <h1>My Blog</h1>
-    <nav>
-      <a href="index.html">Home</a>
-    </nav>
-  </header>
-  <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=800&q=80" alt="Beautiful Dog" class="hero-img">
-  <main>
-    <section id="posts-list">
-      <!-- Blog posts will be injected here by script.js -->
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2024 My Blog</p>
-  </footer>
-  <script src="script.js"></script>
+    <header>
+        <div class="container">
+            <img src="images/logo.png" alt="火影忍者Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#characters">角色</a></li>
+                    <li><a href="#episodes">剧集</a></li>
+                    <li><a href="#videos">视频</a></li>
+                    <li><a href="#gallery">图库</a></li>
+                    <li><a href="#news">新闻</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/banner1.jpg" alt="鸣人与佐助"></div>
+                <div class="swiper-slide"><img src="images/banner2.jpg" alt="晓组织"></div>
+                <div class="swiper-slide"><img src="images/banner3.jpg" alt="木叶村"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </section>
+
+        <section id="characters" class="container section-padding">
+            <h2>主要角色</h2>
+            <div class="character-grid">
+                <div class="character-card">
+                    <img src="images/naruto.jpg" alt="漩涡鸣人">
+                    <h3>漩涡鸣人</h3>
+                    <p>木叶村的忍者，梦想成为火影。</p>
+                </div>
+                <div class="character-card">
+                    <img src="images/sasuke.jpg" alt="宇智波佐助">
+                    <h3>宇智波佐助</h3>
+                    <p>宇智波一族的天才忍者。</p>
+                </div>
+                <div class="character-card">
+                    <img src="images/sakura.jpg" alt="春野樱">
+                    <h3>春野樱</h3>
+                    <p>小樱，医疗忍者。</p>
+                </div>
+                </div>
+        </section>
+
+        <section id="videos" class="container section-padding">
+            <h2>精彩视频</h2>
+            <div class="video-grid">
+                <div class="video-item">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
+                    <h4>鸣人VS佐助 终极之战</h4>
+                </div>
+                <div class="video-item">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+                    <h4>卡卡西的写轮眼</h4>
+                </div>
+                </div>
+        </section>
+
+        <section id="gallery" class="container section-padding">
+            <h2>图库</h2>
+            <div class="image-gallery">
+                <img src="images/gallery1.jpg" alt="火影忍者剧照">
+                <img src="images/gallery2.jpg" alt="火影忍者艺术图">
+                <img src="images/gallery3.jpg" alt="火影忍者战斗场景">
+                <img src="images/gallery4.jpg" alt="火影忍者团队">
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 火影忍者世界. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
